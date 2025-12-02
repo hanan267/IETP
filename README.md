@@ -13,3 +13,12 @@ A plant monitoring prototype with simulated sensors, a Flask API, Gemini-powered
 ## Phase 3: Gemini AI analysis
 - Upload a plant photo, pick one of 6 AI modules (health, identify, care, nutrients, growth, propagate), and press Analyse.
 - A follow-up chat answers questions about the same photo using the earlier analysis as context.
+
+## Phase 4: Setup and limitations
+Run it:
+1. `pip install flask flask-cors requests google-genai`
+2. `set GEMINI_API_KEY=your_key`, then `python app.py`
+3. `python simulator.py`
+4. `cd dashboard`, `npm install`, `npm run dev`
+
+Limitations: hardware is simulated, data is stored in memory, and there is no authentication. Next steps: SQLite storage, real device integration, and accuracy testing.
