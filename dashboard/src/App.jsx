@@ -17,6 +17,8 @@ function App() {
   const [chatLoading, setChatLoading] = useState(false);
   const [log, setLog] = useState(["System initialized..."]);
 
+
+
   const addLog = (msg) =>
     setLog((prev) => [...prev.slice(-5), `[${new Date().toLocaleTimeString()}] ${msg}`]);
 
@@ -31,6 +33,9 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
+  
+  
+  
   const latest = readings[readings.length - 1];
   const hasImage = source === "upload" ? !!file : camera.has_image;
 
@@ -44,11 +49,15 @@ function App() {
     addLog(`Pump command: ${action}`);
   };
 
+
+
   const handleFile = (e) => {
     setFile(e.target.files[0]);
     setResult("");
     setChat([]);
   };
+
+
 
   const runModule = async () => {
     setLoading(true);
@@ -63,6 +72,7 @@ function App() {
     addLog(`${mode} scan complete (${source})`);
   };
 
+  
   const sendChat = async () => {
     if (!question.trim()) return;
     const history = chat;

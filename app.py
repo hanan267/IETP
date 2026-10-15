@@ -12,12 +12,17 @@ readings = []
 pump = {"on": False, "mode": "AUTO"}
 
 
+
+
+
 @app.route("/readings", methods=["POST"])
 def add_reading():
 
     data = request.get_json()
     if not data or "moisture" not in data or "temperature" not in data or "light" not in data:
       return jsonify({"error": "missing fields"}), 400 
+
+
     
     
     data["status"] = "needs water" if data["moisture"] < 30 else "ok"
@@ -29,9 +34,13 @@ def add_reading():
     readings.append(data)
     return jsonify({"ok": True}), 201 
 
+
+
 @app.route("/readings", methods=["GET"])
 def get_readings():
     return jsonify(readings[-20:])
+
+
 
 @app.route("/diagnose", methods=["POST"])
 def diagnose():
@@ -49,6 +58,8 @@ def diagnose():
     )
     return jsonify({"diagnosis": response.text})
 
+
+
 @app.route("/pump", methods=["GET"])
 def get_pump():
     return jsonify(pump)
@@ -65,6 +76,8 @@ def set_pump():
     else:
         return jsonify({"error": "bad action"}), 400
     return jsonify(pump)
+
+
 
 PROMPTS = {
     "health": "Is this plant healthy or diseased? Name the likely issue, give confidence low, medium or high, and two fixes. Under 80 words.",

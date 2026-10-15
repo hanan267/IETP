@@ -4,6 +4,7 @@ body {
   color: #e2e8f0;
   font-family: Inter, Arial, sans-serif;
 }
+
 .app {
   display: flex;
   gap: 16px;
@@ -11,6 +12,7 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
 }
+
 
 .sidebar {
   width: 300px;
@@ -21,6 +23,8 @@ body {
   flex-direction: column;
   gap: 10px;
 }
+
+
 .sidebar h2 { color: #10b981; font-size: 18px; margin: 0 0 8px; }
 .sidebar h4, .panel h4 { color: #94a3b8; font-size: 12px; letter-spacing: 1px; margin: 12px 0 0; }
 .sidebar pre {
@@ -31,6 +35,7 @@ body {
   font-size: 12px;
   white-space: pre-wrap;
 }
+
 
 button {
   padding: 12px;
